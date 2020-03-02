@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.freccia-sx , .freccia-dx {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel {
+    display: flex;
+    align-items: space-evenly;
+    justify-content: center;
+}
+
+.box-image {
+    height: calc((800px) / 16 * 9);
+    width: 800px;
+}
+
+.box-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display:none;
+}
+
+.box-image img.active {
+    display: block;
+}
