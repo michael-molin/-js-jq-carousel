@@ -28,6 +28,7 @@
 .box-image {
     height: calc((800px) / 16 * 9);
     width: 800px;
+    position: relative;
 }
 
 .box-image img {
@@ -39,4 +40,23 @@
 
 .box-image img.active {
     display: block;
+}
+
+.slider {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+}
+
+.slider i {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.slider i.active {
+    transition: 0.2s;
+    color: white;
 }

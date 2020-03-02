@@ -38,6 +38,19 @@ $(document).ready(function () {
         }
         immagineCorrente.removeClass("active");
         immagineProssima.addClass('active');
+
+        // Pallini slider
+
+        var pallinoCorrente = $(".slider i.active");
+
+        if ($(".slider i.active").hasClass('last')) {
+            console.log('last pallino controllato');
+            var pallinoProssimo = $('.slider .first');
+        } else {
+            var pallinoProssimo = $('.slider i.active').next();
+        }
+        pallinoCorrente.removeClass("active");
+        pallinoProssimo.addClass('active');
     }
 
     function precedente() {
@@ -50,5 +63,17 @@ $(document).ready(function () {
         }
         immagineCorrente.removeClass("active");
         immaginePrecedente.addClass('active');
+
+        // Pallini slider
+        var pallinoCorrente = $(".slider i.active");
+
+        if ($(".slider i.active").hasClass('first')) {
+            console.log('last pallino controllato');
+            var pallinoProssimo = $('.slider .last');
+        } else {
+            var pallinoProssimo = $('.slider i.active').prev();
+        }
+        pallinoCorrente.removeClass("active");
+        pallinoProssimo.addClass('active');
     }
 });
