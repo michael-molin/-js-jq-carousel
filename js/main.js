@@ -5,15 +5,9 @@ $(document).ready(function () {
         clearInterval(tempo);
     });
 
-    $('.carousel').mouseenter(function () {
-        clearInterval(tempo);
-    });
-
     $('.carousel').mouseleave(function () {
         tempo = setInterval(prossima, 2000);
     });
-
-
 
     $(".freccia-dx").click(function() {
         prossima();
@@ -23,7 +17,13 @@ $(document).ready(function () {
         precedente();
     });
 
-
+    $(".slider i").click(function() {
+        $(".slider i").removeClass('active'); // Rimuovo ACTIVE su ogni pallino
+        $(this).addClass('active'); //rendo active elemento selezionato dal click
+        var posizione = parseInt($(".slider i").index(this)); // assegno la posizione (INDEX) del valore selezionato dal click (THIS) ad una variabile
+        $(".box-image img.active").removeClass("active"); // rimuovo active da ogni immagine
+        $(".box-image img").eq(posizione).addClass('active'); // assegno active alla immagine corrispondente all'index tramite metodo EQ()
+    });
 
 
 
@@ -31,7 +31,6 @@ $(document).ready(function () {
         var immagineCorrente = $(".box-image img.active");
 
         if ($(".box-image img.active").hasClass('last')) {
-            console.log('last controllato');
             var immagineProssima = $('.box-image .first');
         } else {
             var immagineProssima = $('.box-image img.active').next();
@@ -44,7 +43,6 @@ $(document).ready(function () {
         var pallinoCorrente = $(".slider i.active");
 
         if ($(".slider i.active").hasClass('last')) {
-            console.log('last pallino controllato');
             var pallinoProssimo = $('.slider .first');
         } else {
             var pallinoProssimo = $('.slider i.active').next();
@@ -68,7 +66,6 @@ $(document).ready(function () {
         var pallinoCorrente = $(".slider i.active");
 
         if ($(".slider i.active").hasClass('first')) {
-            console.log('last pallino controllato');
             var pallinoProssimo = $('.slider .last');
         } else {
             var pallinoProssimo = $('.slider i.active').prev();
@@ -76,4 +73,5 @@ $(document).ready(function () {
         pallinoCorrente.removeClass("active");
         pallinoProssimo.addClass('active');
     }
+
 });
