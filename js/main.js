@@ -1,10 +1,19 @@
 $(document).ready(function () {
-
     var tempo = setInterval(prossima, 2000);
 
     $('.carousel').mouseenter(function () {
         clearInterval(tempo);
     });
+
+    $('.carousel').mouseenter(function () {
+        clearInterval(tempo);
+    });
+
+    $('.carousel').mouseleave(function () {
+        tempo = setInterval(prossima, 2000);
+    });
+
+
 
     $(".freccia-dx").click(function() {
         prossima();
@@ -27,7 +36,6 @@ $(document).ready(function () {
         } else {
             var immagineProssima = $('.box-image img.active').next();
         }
-
         immagineCorrente.removeClass("active");
         immagineProssima.addClass('active');
     }
@@ -40,7 +48,6 @@ $(document).ready(function () {
         } else {
             var immaginePrecedente = $('.box-image img.active').prev();
         }
-
         immagineCorrente.removeClass("active");
         immaginePrecedente.addClass('active');
     }
