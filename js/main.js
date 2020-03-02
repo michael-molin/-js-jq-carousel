@@ -1,5 +1,8 @@
 $(document).ready(function () {
     var tempo = setInterval(prossima, 2000);
+    setTimeout(function( ) {
+        clearInterval( tempo );
+    }, 20000);
 
     $('.carousel').mouseenter(function () {
         clearInterval(tempo);
@@ -17,9 +20,10 @@ $(document).ready(function () {
         precedente();
     });
 
+    // BONUS
     $(".slider i").click(function() {
         $(".slider i").removeClass('active'); // Rimuovo ACTIVE su ogni pallino
-        $(this).addClass('active'); //rendo active elemento selezionato dal click
+        $(this).addClass('active'); //rendo active elemento selezionato (THIS) dal click
         var posizione = parseInt($(".slider i").index(this)); // assegno la posizione (INDEX) del valore selezionato dal click (THIS) ad una variabile
         $(".box-image img.active").removeClass("active"); // rimuovo active da ogni immagine
         $(".box-image img").eq(posizione).addClass('active'); // assegno active alla immagine corrispondente all'index tramite metodo EQ()
@@ -73,5 +77,4 @@ $(document).ready(function () {
         pallinoCorrente.removeClass("active");
         pallinoProssimo.addClass('active');
     }
-
 });
